@@ -10,7 +10,7 @@ ExternalProject_Add(ADD_BISON
         BUILD_IN_SOURCE 1
         LOG_BUILD 1
         LOG_CONFIGURE 0
-        BUILD_COMMAND make -j4
+        BUILD_COMMAND make
         INSTALL_COMMAND make install
         URL_MD5 ${BISON_MD5}
         )

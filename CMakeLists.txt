@@ -1,7 +1,9 @@
 cmake_minimum_required(VERSION 3.15)
 
 project(thirdparty_ci)
+if(POLICY CMP0135)
 cmake_policy(SET CMP0135 NEW)  # 设置CMP0135策略为新行为
+endif()
 
 if(WIN32)
     option(MT_MODE "default compiled as MD" off)
@@ -11,9 +13,9 @@ if(WIN32)
 endif(WIN32)
 
 IF (UNIX)
-    set(CMAKE_INSTALL_PREFIX "/usr/local/taf/thirdparty" CACHE STRING "set install path" FORCE)
+    set(CMAKE_INSTALL_PREFIX "/usr/local/thirdparty" CACHE STRING "set install path" FORCE)
 ELSE()
-    set(CMAKE_INSTALL_PREFIX "c:/taf/thirdparty/" CACHE STRING "set install path" FORCE)
+    set(CMAKE_INSTALL_PREFIX "c:/thirdparty/" CACHE STRING "set install path" FORCE)
 ENDIF()
 
 set(MSVC_TOOLSET_VERSION "v140")
