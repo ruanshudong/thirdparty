@@ -17,6 +17,6 @@ jobs:
       - run: perl -V
       - uses: actions/checkout@v3
       - name: configure
-        run: cd build; cmake --version; cmake ..
+        run: mkdir build; cd build; cmake --version; cmake ..
       - name: make
         run: cd build; cmake --build . --config release

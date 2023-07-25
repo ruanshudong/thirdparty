@@ -12,6 +12,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: configure
-        run: cd build;cmake ..
+        run: make build; cd build;cmake ..
       - name: make
         run: cd build; make
