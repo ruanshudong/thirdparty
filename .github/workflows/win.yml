@@ -17,6 +17,14 @@ jobs:
       - run: perl -V
       - uses: actions/checkout@v3
       - name: configure
-        run: mkdir build; cd build; cmake --version; cmake ..
+        run: mkdir build; cd build; cmake --version; cmake .. -DCMAKE_INSTALL_PREFIX=dist
       - name: make
         run: cd build; cmake --build . --config release
+      - name: Compress build output
+        run: |
+          zip -r dist-win.tgz build/
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-artifact
+          path: dist-win.tgz
