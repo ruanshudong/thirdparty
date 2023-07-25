@@ -1,0 +1,6 @@
+build/
+cmake-build-debug
+download/
+.idea/
+build-test/
+clear-install.cmake

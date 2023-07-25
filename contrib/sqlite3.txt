@@ -1,0 +1,17 @@
+cmake_minimum_required(VERSION 3.14)
+project(sqlite3 C)
+
+ADD_LIBRARY(sqlite3 STATIC sqlite3.c)
+add_definitions(
+    -DSQLITE_THREADSAFE=1
+    -DSQLITE_ENABLE_SNAPSHOT=1
+    -DSQLITE_ENABLE_ATOMIC_WRITE=1
+    -DSQLITE_ENABLE_BATCH_ATOMIC_WRITE=1
+)
+
+install(TARGETS sqlite3 DESTINATION lib)
+install(FILES
+  "${CMAKE_CURRENT_SOURCE_DIR}/sqlite3.h"
+  "${CMAKE_CURRENT_SOURCE_DIR}/sqlite3ext.h"
+  DESTINATION "include"
+  )
