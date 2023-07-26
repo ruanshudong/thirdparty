@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Install gperf
-        run: sudo apt-get update && sudo apt-get install gperf gettext -y
+        run: sudo apt-get update && sudo apt-get install gperf gettext automake -y
       - uses: actions/checkout@v3
       - name: configure
         run: mkdir build; cd build;cmake .. -DCMAKE_INSTALL_PREFIX=dist
