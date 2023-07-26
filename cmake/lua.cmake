@@ -14,7 +14,7 @@ if(APPLE)
     URL_MD5 ${LUA_MD5}
     )
 
-elseif(LINUX)
+elseif(UNIX)
     ExternalProject_Add(ADD_${LIB_LUA}
         URL ${THIRDPARTY_URL}/lua-${LUA_VERSION}.tar.gz
         DOWNLOAD_DIR ${CMAKE_SOURCE_DIR}/download

@@ -11,7 +11,7 @@ ExternalProject_Add(ADD_BISON
         LOG_BUILD 1
         LOG_CONFIGURE 0
         BUILD_COMMAND ${CMAKE_COMMAND}
-        INSTALL_COMMAND ${CMAKE_COMMAND} install
+	#        INSTALL_COMMAND ${CMAKE_COMMAND} install
         URL_MD5 ${BISON_MD5}
         )
 add_dependencies(thirdparty ADD_BISON)
