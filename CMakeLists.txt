@@ -24,7 +24,7 @@ INCLUDE(ExternalProject)
 
 add_custom_target(thirdparty)
 
-set(THIRDPARTY_URL "https://tars-thirdpart-1300910346.cos.ap-guangzhou.myqcloud.com/src")
+set(THIRDPARTY_URL "http://tars-thirdpart-1300910346.cos.ap-guangzhou.myqcloud.com/src")
 set(THIRDPARTY_PATH "${CMAKE_BINARY_DIR}/src")
 
 set(DEPENDS_LIST)
