@@ -38,10 +38,10 @@ if(UNIX)
     set(FLEX_VERSION "2.6.4")
     set(FLEX_MD5 "2882e3179748cc9f9c23ec593d6adc8d")
 
-    list(APPEND DEPENDS_LIST unixodbc)
-    set(UNIXODBC_VERSION "2.3.11")
-    set(UNIXODBC_MD5 "0ff1fdbcb4c3c7dc2357f3fd6ba09169")
-
+#    list(APPEND DEPENDS_LIST unixodbc)
+#    set(UNIXODBC_VERSION "2.3.11")
+#    set(UNIXODBC_MD5 "0ff1fdbcb4c3c7dc2357f3fd6ba09169")
+#
     list(APPEND DEPENDS_LIST gperf)
     set(GPERF_VERSION "2.7")
     set(GPERF_MD5 "c6a852a817e9160c79bdb2d3101b4601")
