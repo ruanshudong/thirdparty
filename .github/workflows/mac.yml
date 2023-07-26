@@ -11,7 +11,10 @@ jobs:
 
     steps:
       - name: Install
-        run: brew update && brew install automake gettext
+        run: |
+          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" 
+          brew update
+          brew install automake gettext
       - uses: actions/checkout@v3
       - name: configure
         run: mkdir build; cd build;cmake .. -DCMAKE_INSTALL_PREFIX=dist
