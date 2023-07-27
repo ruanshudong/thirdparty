@@ -5,7 +5,7 @@ ExternalProject_Add(ADD_FLEX
         DOWNLOAD_DIR ${CMAKE_SOURCE_DIR}/download
         PREFIX ${CMAKE_BINARY_DIR}
         INSTALL_DIR ${CMAKE_SOURCE_DIR}
-        CONFIGURE_COMMAND ./configure --prefix=${THIRDPARTY_PATH}/flex-${FLEX_VERSION} --enable-shared=no --enable-static=yes
+        CONFIGURE_COMMAND aclocal && automake && ./configure --prefix=${THIRDPARTY_PATH}/flex-${FLEX_VERSION} --enable-shared=no --enable-static=yes
         SOURCE_DIR ${THIRDPARTY_PATH}/flex-lib
         BUILD_IN_SOURCE 1
         LOG_BUILD 0

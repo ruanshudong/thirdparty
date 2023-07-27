@@ -5,7 +5,7 @@ ExternalProject_Add(ADD_BISON
         DOWNLOAD_DIR ${CMAKE_SOURCE_DIR}/download
         PREFIX ${CMAKE_BINARY_DIR}
         INSTALL_DIR ${CMAKE_SOURCE_DIR}
-        CONFIGURE_COMMAND ./configure --prefix=${THIRDPARTY_PATH}/bison-${BISON_VERSION}
+        CONFIGURE_COMMAND aclocal && automake && ./configure --prefix=${THIRDPARTY_PATH}/bison-${BISON_VERSION}
         SOURCE_DIR ${THIRDPARTY_PATH}/bison-lib
         BUILD_IN_SOURCE 1
         LOG_BUILD 1
