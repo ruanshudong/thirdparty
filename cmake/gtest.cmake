@@ -22,7 +22,7 @@ if (WIN32)
 else()
 
   if(APPLE)
-    set(GTEST_CMAKE_CXX_FLAGS " -DGTEST_USE_OWN_TR1_TUPLE=1 -Wno-unused-value -Wno-ignored-attributes -Wno-error=deprecated-copy")
+    set(GTEST_CMAKE_CXX_FLAGS " -DGTEST_USE_OWN_TR1_TUPLE=1 -Wno-unused-value -Wno-ignored-attributes -Wdeprecated-copy")
   else()
     set(GTEST_CMAKE_CXX_FLAGS "")
   endif()
@@ -32,7 +32,7 @@ else()
           DOWNLOAD_DIR ${CMAKE_SOURCE_DIR}/download
           PREFIX ${CMAKE_BINARY_DIR}
           INSTALL_DIR ${CMAKE_SOURCE_DIR}
-          CONFIGURE_COMMAND ${CMAKE_COMMAND} . -DCMAKE_CXX_FLAGS=${GTEST_CMAKE_CXX_FLAGS} -DCMAKE_INSTALL_PREFIX=${THIRDPARTY_PATH}/gtest-${GTEST_VERSION} -DBUILD_STATIC_LIBS=ON -Dgtest_hide_internal_symbols=ON -Dgtest_force_shared_crt=ON
+          CONFIGURE_COMMAND ${CMAKE_COMMAND} . -DCMAKE_CXX_FLAGS=${GTEST_CMAKE_CXX_FLAGS} -DCMAKE_INSTALL_PREFIX=${THIRDPARTY_PATH}/gtest-${GTEST_VERSION} -DBUILD_SHARED_LIBS=OFF -Dgtest_hide_internal_symbols=ON -Dgtest_force_shared_crt=ON
           SOURCE_DIR ${THIRDPARTY_PATH}/${LIB_GTEST}-lib
           BUILD_IN_SOURCE 1
           BUILD_COMMAND make
