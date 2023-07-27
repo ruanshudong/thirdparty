@@ -14,8 +14,9 @@ jobs:
         run: |
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" 
           brew update
-          brew install gettext autoconf libtool automake
-          brew upgrade textinfo
+          brew upgrade gettext autoconf libtool 
+          brew install automake
+          brew install texinfo
           makeinfo --version
       - uses: actions/checkout@v3
       - name: configure
