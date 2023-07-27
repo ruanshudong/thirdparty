@@ -15,7 +15,7 @@ jobs:
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" 
           brew update
           brew upgrade gettext autoconf libtool 
-          brew install automake@1.15
+          brew install automake
           brew install texinfo
           makeinfo --version
       - uses: actions/checkout@v3
