@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: shogo82148/actions-setup-perl@v1
         with:
-          perl-version: "5.32"
+          perl-version: "5.18"
           distribution: strawberry
       - run: perl -V
       - uses: actions/checkout@v3

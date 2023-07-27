@@ -2,18 +2,18 @@
 if (WIN32)
     set(LIB_GMSSL "libgmssl")
     set(LIB_GMSSL_PREFIX ${THIRDPARTY_PATH}/gmssl)
-    if (CMAKE_CL_64)
-        set(arch VC-WIN64A)
-    else()
-        set(arch VC-WIN32)
-    endif()
-
+#    if (CMAKE_CL_64)
+#        set(arch VC-WIN64A)
+#    else()
+#        set(arch VC-WIN32)
+#    endif()
+#
     ExternalProject_Add(ADD_${LIB_GMSSL}
             URL ${THIRDPARTY_URL}/gmssl-${GMSSL_VERSION}.tar.gz
             DOWNLOAD_DIR ${CMAKE_SOURCE_DIR}/download
             PREFIX ${CMAKE_BINARY_DIR}
             INSTALL_DIR ${CMAKE_SOURCE_DIR}
-            CONFIGURE_COMMAND perl ${THIRDPARTY_PATH}/gmssl-lib/Configure --prefix=${LIB_GMSSL_PREFIX}-${GMSSL_VERSION} ${arch} no-asm no-shared -DGMSSL_NO_TURBO no-afalgeng
+            CONFIGURE_COMMAND perl ${THIRDPARTY_PATH}/gmssl-lib/Configure --prefix=${LIB_GMSSL_PREFIX}-${GMSSL_VERSION} VC-WIN64A no-asm no-shared -DGMSSL_NO_TURBO no-afalgeng
             SOURCE_DIR ${THIRDPARTY_PATH}/gmssl-lib
             BUILD_IN_SOURCE 1
             BUILD_COMMAND nmake
