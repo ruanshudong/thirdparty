@@ -22,7 +22,7 @@ if (WIN32)
 else()
 
   if(APPLE)
-    set(GTEST_CMAKE_CXX_FLAGS " -DGTEST_USE_OWN_TR1_TUPLE=1 -Wno-unused-value -Wno-ignored-attributes")
+    set(GTEST_CMAKE_CXX_FLAGS " -DGTEST_USE_OWN_TR1_TUPLE=1 -Wno-unused-value -Wno-ignored-attributes -Wno-error=deprecated-copy")
   else()
     set(GTEST_CMAKE_CXX_FLAGS "")
   endif()
