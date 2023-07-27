@@ -7,11 +7,14 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
 
     steps:
-      - name: Install gperf
-        run: sudo apt-get update && sudo apt-get install gperf gettext automake autoconf libtool build-essential -y
+      - name: Install
+        run: |
+          sudo apt-get update && sudo apt-get install gperf gettext automake autoconf libtool build-essential -y
+          autoconf --version
+          automake --version
       - uses: actions/checkout@v3
       - name: configure
         run: mkdir build; cd build;cmake .. -DCMAKE_INSTALL_PREFIX=dist
