@@ -21,11 +21,11 @@ jobs:
       - uses: actions/checkout@v3
       - name: Cache dependencies
         id: cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           # 缓存的键，用于区分不同的缓存项
-          path: ./download
-          key: download-cache-mac
+          path: download
+          key: ${{ runner.os }}-download
       - name: configure
         run: mkdir build; cd build;cmake .. -DCMAKE_INSTALL_PREFIX=dist
       - name: make
@@ -38,3 +38,8 @@ jobs:
         with:
           name: build-artifact
           path: dist-mac.tgz
+      - name: Save cache
+        if: steps.cache.outputs.cache-hit != 'true'  # 只有在缓存未命中时才保存缓存
+        run: |
+          # 这里不需要额外的命令，因为我们已经使用 `actions/cache` Action 来缓存生成的数据
+          echo "Caching generated data..."
