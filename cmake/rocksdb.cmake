@@ -24,7 +24,7 @@ set(ENV{SNAPPY_LIB_RELEASE} "${SNAPPY_DIR}/lib/snappy.lib")
 #set(ENV{GFLAGS_LIB_DEBUG} "${GFLAGS_DIR}/lib/gflags_static.lib")
 #set(ENV{GFLAGS_LIB_RELEASE} "${GFLAGS_DIR}/lib/gflags_static.lib")
 
-message(${SNAPPY_INCLUDE})
+message(ENV{SNAPPY_INCLUDE})
 #需要修改rocksdb的CMakeLists.txt, 去掉-Wall
 ExternalProject_Add(ADD_${LIB_ROCKSDB}
 		URL ${THIRDPARTY_URL}/rocksdb-${ROCKSDB_VERSION}.tar.gz
