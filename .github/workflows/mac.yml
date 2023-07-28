@@ -39,7 +39,7 @@ jobs:
           name: build-artifact
           path: dist-mac.tgz
       - name: Save cache
-        if: steps.cache.outputs.cache-hit != 'true'  # 只有在缓存未命中时才保存缓存
+        if: always()
         run: |
           # 这里不需要额外的命令，因为我们已经使用 `actions/cache` Action 来缓存生成的数据
           echo "Caching generated data..."
