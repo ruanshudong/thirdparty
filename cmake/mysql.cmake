@@ -10,7 +10,7 @@ if (WIN32)
             CONFIGURE_COMMAND ${CMAKE_COMMAND} . -T${MSVC_TOOLSET_VERSION} -DCMAKE_INSTALL_PREFIX=${THIRDPARTY_PATH}/mysql-${MYSQL_VERSION} -DBUILD_CONFIG=mysql_release
             SOURCE_DIR ${THIRDPARTY_PATH}/mysql-lib
             BUILD_IN_SOURCE 1
-            BUILD_COMMAND ${CMAKE_COMMAND} --build . --config release
+            BUILD_COMMAND ${CMAKE_COMMAND} --build . --config release -- /maxcpucount:4
             INSTALL_COMMAND ${CMAKE_COMMAND} --build . --config release --target install
             URL_MD5 ${MYSQL_MD5}
             )

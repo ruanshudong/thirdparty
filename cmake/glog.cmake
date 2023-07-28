@@ -9,7 +9,7 @@ ExternalProject_Add(ADD_${LIB_GLOG}
         CONFIGURE_COMMAND ${CMAKE_COMMAND} . -DCMAKE_INSTALL_PREFIX=${THIRDPARTY_PATH}/${LIB_GLOG}-${GLOG_VERSION} -DBUILD_SHARED_LIBS=OFF -DBUILD_STATIC_LIBS=ON -DBUILD_TESTING=OFF
         SOURCE_DIR ${THIRDPARTY_PATH}/${LIB_GLOG}-lib
         BUILD_IN_SOURCE 1
-        BUILD_COMMAND ${CMAKE_COMMAND} --build . --config release --config release
+        BUILD_COMMAND ${CMAKE_COMMAND} --build . --config release --config release -- /maxcpucount:4
         URL_MD5 ${GLOG_MD5}
         )
 else(MSVC)
