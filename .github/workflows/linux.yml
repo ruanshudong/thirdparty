@@ -17,6 +17,13 @@ jobs:
           automake --version
           aclocal --version
       - uses: actions/checkout@v3
+      - name: Cache dependencies
+        id: cache
+        uses: actions/cache@v2
+        with:
+          # 缓存的键，用于区分不同的缓存项
+          path: ./download
+          key: download-cache-linux
       - name: configure
         run: mkdir build; cd build;cmake .. -DCMAKE_INSTALL_PREFIX=dist
       - name: make
