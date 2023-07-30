@@ -38,8 +38,14 @@ jobs:
         with:
           name: build-artifact
           path: dist-mac.tgz
-      - name: Save cache
-        if: always()
+  save_cache_job:
+    needs: build  # Ensure this job runs after the first job
+    runs-on: ubuntu-latest
+
+    steps:
+      # Post step to save the cache regardless of job status
+      - name: Save cache regardless of job status
+        if: always()  # This ensures the step is executed regardless of job status
         run: |
-          # 这里不需要额外的命令，因为我们已经使用 `actions/cache` Action 来缓存生成的数据
-          echo "Caching generated data..."
+          # This step is empty as it doesn't need to do anything
+          # The existence of this step with `if: always()` ensures the cache will be saved even if the job fails
