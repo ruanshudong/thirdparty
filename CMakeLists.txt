@@ -49,10 +49,6 @@ if(UNIX)
     set(GPERF_VERSION "2.7")
     set(GPERF_MD5 "c6a852a817e9160c79bdb2d3101b4601")
 
-    list(APPEND DEPENDS_LIST talib)
-    set(TALIB_VERSION "0.4.0")
-    set(TALIB_MD5 "308e53b9644213fc29262f36b9d3d9b9")
-
     list(APPEND DEPENDS_LIST lua)
     set(LUA_VERSION "5.3.6")
     set(LUA_MD5 "83f23dbd5230140a3770d5f54076948d")
@@ -61,6 +57,10 @@ if(UNIX)
     set(CLICKHOUSE_MD5 "2f13d3c7ef95ceaca2f1858df8db5337")
 
 endif(UNIX)
+
+list(APPEND DEPENDS_LIST talib)
+set(TALIB_VERSION "master")
+set(TALIB_MD5 "1e39459d336b48e0792c963ec7bf70b4")
 
 list(APPEND DEPENDS_LIST eigen)
 set(EIGEN_VERSION "3.3.9")

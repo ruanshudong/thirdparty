@@ -3,23 +3,23 @@ set(LIB_TALIB "talib")
 
 if(MSVC)
 ExternalProject_Add(ADD_${LIB_TALIB}
-        URL ${THIRDPARTY_URL}/ta-lib-${TALIB_VERSION}-src.tar.gz
+        URL ${THIRDPARTY_URL}/ta-lib-${TALIB_VERSION}.tar.gz
         DOWNLOAD_DIR ${CMAKE_SOURCE_DIR}/download
         PREFIX ${CMAKE_BINARY_DIR}
         INSTALL_DIR ${CMAKE_SOURCE_DIR}
-        CONFIGURE_COMMAND ./configure --prefix=${THIRDPARTY_PATH}/${LIB_TALIB}-${TALIB_VERSION} --enable-shared=no --enable-static=yes
+        CONFIGURE_COMMAND ${CMAKE_COMMAND} .  -T${MSVC_TOOLSET_VERSION}  -DCMAKE_INSTALL_PREFIX=${THIRDPARTY_PATH}/${LIB_TALIB}-${TALIB_VERSION}
         SOURCE_DIR ${THIRDPARTY_PATH}/${LIB_TALIB}-lib
         BUILD_IN_SOURCE 1
-        BUILD_COMMAND nmake
+        BUILD_COMMAND  ${CMAKE_COMMAND} --build . --config release --target ALL_BUILD -- /maxcpucount:4
         URL_MD5 ${TALIB_MD5}
         )
 else(MSVC)
 ExternalProject_Add(ADD_${LIB_TALIB}
-        URL ${THIRDPARTY_URL}/ta-lib-${TALIB_VERSION}-src.tar.gz
+        URL ${THIRDPARTY_URL}/ta-lib-${TALIB_VERSION}.tar.gz
         DOWNLOAD_DIR ${CMAKE_SOURCE_DIR}/download
         PREFIX ${CMAKE_BINARY_DIR}
         INSTALL_DIR ${CMAKE_SOURCE_DIR}
-        CONFIGURE_COMMAND ./configure --prefix=${THIRDPARTY_PATH}/${LIB_TALIB}-${TALIB_VERSION} --enable-shared=no --enable-static=yes
+        CONFIGURE_COMMAND ${CMAKE_COMMAND} . -DCMAKE_INSTALL_PREFIX=${THIRDPARTY_PATH}/${LIB_TALIB}-${TALIB_VERSION}
         SOURCE_DIR ${THIRDPARTY_PATH}/${LIB_TALIB}-lib
         BUILD_IN_SOURCE 1
         BUILD_COMMAND make
