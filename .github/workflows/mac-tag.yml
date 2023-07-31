@@ -30,19 +30,18 @@ jobs:
         run: mkdir build; cd build;cmake .. -DCMAKE_INSTALL_PREFIX=dist
       - name: make
         run: cd build; make; make install
-      - name: Set environment variable
-        run: |
-          echo "VERSION=$(echo ${GITHUB_REF} | cut -d'/' -f3)" >> $GITHUB_ENV
-          echo $VERSION
+      - name: Get version
+        id: get_version
+        run: echo "::set-output name=VERSION::${GITHUB_REF#refs/tags/}"
       - name: Compress build output
         run: |
-          cd build; tar czf dist-${{ runner.os }}-$VERSION.tgz dist/; mv dist-${{ runner.os }}-$VERSION.tgz ../
+          cd build; tar czf dist-${{ runner.os }}-${{ steps.get_version.outputs.VERSION }}.tgz dist/; mv dist-${{ runner.os }}-${{ steps.get_version.outputs.VERSION }}.tgz ../
       - uses: ncipollo/release-action@v1
         with:
-          artifacts: "dist-${{ runner.os }}-$VERSION.tgz"
+          artifacts: "dist-${{ runner.os }}-${{ steps.get_version.outputs.VERSION }}.tgz"
           allowUpdates: true
           token: ${{ secrets.RELEASE_TOKEN }}
-          name: "${{ runner.os }}-$VERSION"
+          name: "${{ runner.os }}-${{ steps.get_version.outputs.VERSION }}"
   save_cache_job:
     needs: build  # Ensure this job runs after the first job
     runs-on: ubuntu-latest

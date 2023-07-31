@@ -24,7 +24,7 @@ jobs:
           path: download
           key: ${{ runner.os }}-download
       - name: configure
-        run: mkdir build; cd build; cmake --version; cmake .. -DCMAKE_INSTALL_PREFIX=dist
+        run: mkdir build; cd build; cmake --version; cmake .. -DCMAKE_INSTALL_PREFIX=dist  -DBUILD_SHARED_LIBS=ON
       - name: make
         run: cd build; cmake --build . --config release
   save_cache_job:
