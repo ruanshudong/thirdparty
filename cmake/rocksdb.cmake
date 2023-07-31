@@ -35,7 +35,7 @@ ExternalProject_Add(ADD_${LIB_ROCKSDB}
 		SOURCE_DIR ${THIRDPARTY_PATH}/${LIB_ROCKSDB}-lib
 		BUILD_IN_SOURCE 1
 		BUILD_COMMAND ${CMAKE_COMMAND} --build . --config release --target rocksdb -- /maxcpucount:4
-		# URL_MD5 9bd64f1b7b74342ba4c045e9a6dd2bd2
+		INSTALL_COMMAND ${CMAKE_COMMAND} --build . --config release --target install
 		URL_MD5 ${ROCKSDB_MD5}
 		)
 else(MSVC)
