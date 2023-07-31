@@ -1,4 +1,4 @@
-name: C/C++ linux
+name: C/C++ linux tag
 
 on:
   push:
@@ -39,6 +39,7 @@ jobs:
           artifacts: "dist-${{ runner.os }}-$VERSION.tgz"
           allowUpdates: true
           token: ${{ secrets.RELEASE_TOKEN }}
+          name: "${{ runner.os }}-$VERSION"
   save_cache_job:
     needs: build  # Ensure this job runs after the first job
     runs-on: ubuntu-latest
