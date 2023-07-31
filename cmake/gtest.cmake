@@ -15,7 +15,7 @@ if (WIN32)
           CONFIGURE_COMMAND ${CMAKE_COMMAND} . -DCMAKE_INSTALL_PREFIX=${THIRDPARTY_PATH}/gtest -DBUILD_SHARED_LIBS=OFF -Dgtest_hide_internal_symbols=ON -Dgtest_force_shared_crt=ON -A x64 -Dgtest_force_shared_crt=on
           SOURCE_DIR ${THIRDPARTY_PATH}/${LIB_GTEST}-lib
           BUILD_IN_SOURCE 1
-          BUILD_COMMAND ${CMAKE_COMMAND} --build . --config ${CMAKE_BUILD_TYPE} -- /maxcpucount:4
+          BUILD_COMMAND ${CMAKE_COMMAND} --build . --config release -- /maxcpucount:4
           URL_MD5 82358affdd7ab94854c8ee73a180fc53
           )
 else()
