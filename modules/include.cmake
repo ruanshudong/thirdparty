@@ -127,12 +127,12 @@ if (WITH_SQLITE3)
     find_package(Sqlite3)
 endif ()
 
-option(WITH_UNIXODBC "build with unixodbc" ON)
-if (WITH_UNIXODBC)
-    set(UNIXODBC_HOME ${THIRDPARTY_HOME}/unixodbc)
-    find_package(Unixodbc)
-endif ()
-
+#option(WITH_UNIXODBC "build with unixodbc" ON)
+#if (WITH_UNIXODBC)
+#    set(UNIXODBC_HOME ${THIRDPARTY_HOME}/unixodbc)
+#    find_package(Unixodbc)
+#endif ()
+#
 
 option(WITH_ZLIB "build with zlib" ON)
 if (WITH_ZLIB)
