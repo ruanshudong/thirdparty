@@ -2,7 +2,7 @@ name: C/C++ mac
 
 on:
   push:
-    branches:
+    tags:
       - v*
 
 jobs:

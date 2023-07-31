@@ -2,7 +2,7 @@ name: C/C++ win
 
 on:
   push:
-    branches:
+    tags:
       - v*
 
 jobs:

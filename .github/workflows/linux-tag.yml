@@ -2,7 +2,7 @@ name: C/C++ linux
 
 on:
   push:
-    branches:
+    tags:
       - v*
 
 jobs:
