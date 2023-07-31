@@ -20,6 +20,9 @@ ENDIF()
 
 set(MSVC_TOOLSET_VERSION "v140")
 
+option(BUILD_SHARED_LIBS "build shared libs" OFF)
+option(BUILD_STATIC_LIBS "build static libs" ON)
+
 INCLUDE(ExternalProject)
 
 add_custom_target(thirdparty)
