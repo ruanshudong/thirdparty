@@ -13,9 +13,9 @@ if(WIN32)
 endif(WIN32)
 
 IF (UNIX)
-    set(CMAKE_INSTALL_PREFIX "/usr/local/thirdparty" CACHE STRING "set install path" FORCE)
+    set(CMAKE_INSTALL_PREFIX "/usr/local/thirdparty" CACHE STRING "set install path" )
 ELSE()
-    set(CMAKE_INSTALL_PREFIX "c:/thirdparty/" CACHE STRING "set install path" FORCE)
+    set(CMAKE_INSTALL_PREFIX "c:/thirdparty/" CACHE STRING "set install path" )
 ENDIF()
 
 set(MSVC_TOOLSET_VERSION "v140")
