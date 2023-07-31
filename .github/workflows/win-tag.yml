@@ -28,10 +28,11 @@ jobs:
       - name: make
         run: cd build; cmake --build . --config release --target ALL_BUILD; cmake --build . --config release --target install
       - name: Set environment variable
-        run: echo "VERSION=$(echo ${GITHUB_REF} | cut -d'/' -f3)" >> $GITHUB_ENV
+        run: |
+          echo "VERSION=$(echo ${GITHUB_REF} | cut -d'/' -f3)" >> $GITHUB_ENV
       - name: Compress build output
         run: |
-          tar czf dist-${{ runner.os }}-$VERSION.tgz dist/
+          cd build; tar czf dist-${{ runner.os }}-$VERSION.tgz dist/; mv dist-${{ runner.os }}-$VERSION.tgz ../
       - uses: ncipollo/release-action@v1
         with:
           artifacts: "dist-${{ runner.os }}-$VERSION.tgz"

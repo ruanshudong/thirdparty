@@ -31,10 +31,12 @@ jobs:
       - name: make
         run: cd build; make; make install
       - name: Set environment variable
-        run: echo "VERSION=$(echo ${GITHUB_REF} | cut -d'/' -f3)" >> $GITHUB_ENV
+        run: |
+          echo "VERSION=$(echo ${GITHUB_REF} | cut -d'/' -f3)" >> $GITHUB_ENV
+          echo $VERSION
       - name: Compress build output
         run: |
-          tar czf dist-${{ runner.os }}-$VERSION.tgz dist/
+          cd build; tar czf dist-${{ runner.os }}-$VERSION.tgz dist/; mv dist-${{ runner.os }}-$VERSION.tgz ../
       - uses: ncipollo/release-action@v1
         with:
           artifacts: "dist-${{ runner.os }}-$VERSION.tgz"
