@@ -16,7 +16,6 @@ if (WIN32)
           SOURCE_DIR ${THIRDPARTY_PATH}/${LIB_GTEST}-lib
           BUILD_IN_SOURCE 1
           BUILD_COMMAND ${CMAKE_COMMAND} --build . --config ${CMAKE_BUILD_TYPE} -- /maxcpucount:4
-          INSTALL_COMMAND ${CMAKE_COMMAND} --build . --config  ${CMAKE_BUILD_TYPE}  --target install
           URL_MD5 82358affdd7ab94854c8ee73a180fc53
           )
 else()
