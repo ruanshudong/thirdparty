@@ -1,5 +1,5 @@
 
-set(THIRDPARTY_HOME "/usr/local/taf/thirdparty")
+set(THIRDPARTY_HOME "/usr/local/thirdparty")
 #mysql 可选
 option(WITH_MYSQL "build with MYSQL" ON)
 if (WITH_MYSQL)
