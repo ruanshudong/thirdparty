@@ -3,7 +3,7 @@ set(LIB_TALIB "talib")
 
 if(MSVC)
 ExternalProject_Add(ADD_${LIB_TALIB}
-        URL ${THIRDPARTY_URL}/ta-lib-${TALIB_VERSION}.fixed.tar.gz
+        URL ${THIRDPARTY_URL}/ta-lib-${TALIB_VERSION}.tar.gz
         DOWNLOAD_DIR ${CMAKE_SOURCE_DIR}/download
         PREFIX ${CMAKE_BINARY_DIR}
         INSTALL_DIR ${CMAKE_SOURCE_DIR}
@@ -15,7 +15,7 @@ ExternalProject_Add(ADD_${LIB_TALIB}
         )
 else(MSVC)
 ExternalProject_Add(ADD_${LIB_TALIB}
-        URL ${THIRDPARTY_URL}/ta-lib-${TALIB_VERSION}.fixed.tar.gz
+        URL ${THIRDPARTY_URL}/ta-lib-${TALIB_VERSION}.tar.gz
         DOWNLOAD_DIR ${CMAKE_SOURCE_DIR}/download
         PREFIX ${CMAKE_BINARY_DIR}
         INSTALL_DIR ${CMAKE_SOURCE_DIR}
