@@ -1,5 +1,5 @@
 
-set(LIB_TALIB "talib")
+set(LIB_TALIB "ta-lib")
 
 if(MSVC)
 ExternalProject_Add(ADD_${LIB_TALIB}

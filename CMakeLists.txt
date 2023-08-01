@@ -60,7 +60,7 @@ endif(UNIX)
 
 list(APPEND DEPENDS_LIST talib)
 set(TALIB_VERSION "0.5.0")
-set(TALIB_MD5 "7b2a7066364df00f6f190c68f9fdf72e")
+set(TALIB_MD5 "3a27cb8ff886a478e86a7ae52692e6bc")
 
 list(APPEND DEPENDS_LIST eigen)
 set(EIGEN_VERSION "3.3.9")
