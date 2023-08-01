@@ -28,9 +28,8 @@ jobs:
       - name: make
         run: cd build; cmake --build . --config release
   save_cache_job:
-    needs: build  # Ensure this job runs after the first job
-    runs-on: ubuntu-latest
-
+    depends-on: build  # Ensure this job runs after the first job
+    runs-on: windows-2019
     steps:
       # Post step to save the cache regardless of job status
       - name: Save cache regardless of job status
