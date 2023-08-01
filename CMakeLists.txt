@@ -13,10 +13,16 @@ if(WIN32)
 endif(WIN32)
 
 IF (UNIX)
-    set(CMAKE_INSTALL_PREFIX "/usr/local/thirdparty" CACHE STRING "set install path" )
+    set(INSTALL_PREFIX "/usr/local/thirdparty" CACHE STRING "set install path" )
 ELSE()
-    set(CMAKE_INSTALL_PREFIX "c:/thirdparty/" CACHE STRING "set install path" )
+    set(INSTALL_PREFIX "c:/thirdparty/" CACHE STRING "set install path" )
 ENDIF()
+
+#工程INSTALL目录
+IF(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
+    set(CMAKE_INSTALL_PREFIX "${INSTALL_PREFIX}" CACHE STRING "set install path" FORCE)
+endif()
+
 
 set(MSVC_TOOLSET_VERSION "v140")
 
@@ -53,8 +59,8 @@ if(UNIX)
     set(LUA_VERSION "5.3.6")
     set(LUA_MD5 "83f23dbd5230140a3770d5f54076948d")
 
-    list(APPEND DEPENDS_LIST clickhouse)
-    set(CLICKHOUSE_MD5 "2f13d3c7ef95ceaca2f1858df8db5337")
+#    list(APPEND DEPENDS_LIST clickhouse)
+#    set(CLICKHOUSE_MD5 "2f13d3c7ef95ceaca2f1858df8db5337")
 
 endif(UNIX)
 
@@ -165,6 +171,11 @@ set(RDKAFKA_MD5 "29a68127b849fff07892e89b08a341c9")
 list(APPEND DEPENDS_LIST curl)
 set(CURL_VERSION "7.75.0")
 set(CURL_MD5 "2071994cfc5079d03439915f2751c8bc")
+
+############################################################################################
+
+message("CMAKE_INSTALL_PREFIX:${CMAKE_INSTALL_PREFIX}")
+message("THIRDPARTY_PATH:${THIRDPARTY_PATH}")
 
 ############################################################################################
 set(CLEAR_INCLUDE "clear-install.cmake")
