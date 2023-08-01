@@ -3,20 +3,20 @@ set(LIB_GTEST "gtest")
 
 if (WIN32)
 
-  if (CMAKE_BUILD_TYPE STREQUAL "Debug")
-    set(LIB_GTEST "${LIB_GTEST}d")
-  endif()
+  # if (CMAKE_BUILD_TYPE STREQUAL "Debug")
+  #   set(LIB_GTEST "${LIB_GTEST}d")
+  # endif()
 
   ExternalProject_Add(ADD_${LIB_GTEST}
           URL ${THIRDPARTY_URL}/release-${GTEST_VERSION}.zip
           DOWNLOAD_DIR ${CMAKE_SOURCE_DIR}/download
           PREFIX ${CMAKE_BINARY_DIR}
           INSTALL_DIR ${CMAKE_SOURCE_DIR}
-          CONFIGURE_COMMAND ${CMAKE_COMMAND} . -DCMAKE_INSTALL_PREFIX=${THIRDPARTY_PATH}/gtest -DBUILD_SHARED_LIBS=${BUILD_SHARED_LIBS} -Dgtest_hide_internal_symbols=ON -Dgtest_force_shared_crt=ON -A x64 -Dgtest_force_shared_crt=on
+          CONFIGURE_COMMAND ${CMAKE_COMMAND} . -T${MSVC_TOOLSET_VERSION} -DCMAKE_INSTALL_PREFIX=${THIRDPARTY_PATH}/gtest-${GTET_VERSION} -DBUILD_SHARED_LIBS=${BUILD_SHARED_LIBS} -Dgtest_hide_internal_symbols=ON -Dgtest_force_shared_crt=ON -Dgtest_force_shared_crt=on
           SOURCE_DIR ${THIRDPARTY_PATH}/${LIB_GTEST}-lib
           BUILD_IN_SOURCE 1
           BUILD_COMMAND ${CMAKE_COMMAND} --build . --config release -- /maxcpucount:4
-          URL_MD5 82358affdd7ab94854c8ee73a180fc53
+          URL_MD5 ${GTEST_MD5}
           )
 else()
 
@@ -35,7 +35,7 @@ else()
           SOURCE_DIR ${THIRDPARTY_PATH}/${LIB_GTEST}-lib
           BUILD_IN_SOURCE 1
           BUILD_COMMAND make
-          URL_MD5 6f26d634fa9cac718263c2df20df21a4
+          URL_MD5 ${GTEST_MD5} 
           )
 endif()
 
