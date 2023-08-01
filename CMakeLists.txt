@@ -59,8 +59,8 @@ if(UNIX)
 endif(UNIX)
 
 list(APPEND DEPENDS_LIST talib)
-set(TALIB_VERSION "master")
-set(TALIB_MD5 "1e39459d336b48e0792c963ec7bf70b4")
+set(TALIB_VERSION "0.5.0")
+set(TALIB_MD5 "d03a64df1d9ee9ab87b000a2d785ee7f")
 
 list(APPEND DEPENDS_LIST eigen)
 set(EIGEN_VERSION "3.3.9")
