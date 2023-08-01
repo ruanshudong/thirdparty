@@ -31,7 +31,7 @@ jobs:
       - name: make
         run: cd build; make
   save_cache_job:
-    depends-on: build  # Ensure this job runs after the first job
+    # depends-on: build  # Ensure this job runs after the first job
     runs-on: macos-latest
 
     steps:

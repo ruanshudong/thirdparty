@@ -43,7 +43,7 @@ jobs:
           token: ${{ secrets.RELEASE_TOKEN }}
           name: "${{ runner.os }}-${{ steps.get_version.outputs.VERSION }}"
   save_cache_job:
-    depends-on: build  # Ensure this job runs after the first job
+    # depends-on: build  # Ensure this job runs after the first job
     runs-on: macos-latest
 
     steps:

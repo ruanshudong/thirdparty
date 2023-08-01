@@ -28,7 +28,7 @@ jobs:
       - name: make
         run: cd build; cmake --build . --config release
   save_cache_job:
-    depends-on: build  # Ensure this job runs after the first job
+    # depends-on: build  # Ensure this job runs after the first job
     runs-on: windows-2019
     steps:
       # Post step to save the cache regardless of job status
