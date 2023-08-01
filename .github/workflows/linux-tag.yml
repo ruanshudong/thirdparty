@@ -37,7 +37,7 @@ jobs:
           echo $VERSION
       - uses: ncipollo/release-action@v1
         with:
-          artifacts: "dist-${{ runner.os }}-$VERSION.tgz"
+          artifacts: "dist-${{ runner.os }}-$VERSION${{ steps.get_version.outputs.VERSION }}.tgz"
           allowUpdates: true
           token: ${{ secrets.RELEASE_TOKEN }}
           name: "${{ runner.os }}-${{ steps.get_version.outputs.VERSION }}"
