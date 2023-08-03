@@ -1,5 +1,10 @@
 
-set(THIRDPARTY_HOME "/usr/local/thirdparty")
+if (UNIX)
+    set(THIRDPARTY_HOME "/usr/local/thirdparty")
+else ()
+    set(THIRDPARTY_HOME "C:/thirdparty")
+endif ()
+
 #mysql 可选
 option(WITH_MYSQL "build with MYSQL" ON)
 if (WITH_MYSQL)
