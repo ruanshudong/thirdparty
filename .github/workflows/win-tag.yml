@@ -38,7 +38,7 @@ jobs:
           artifacts: "dist-${{ runner.os }}-${{ steps.get_version.outputs.VERSION }}.tgz"
           allowUpdates: true
           token: ${{ secrets.RELEASE_TOKEN }}
-          name: "${{ runner.os }}-${{ steps.get_version.outputs.VERSION }}"
+          name: "${{ steps.get_version.outputs.VERSION }}"
   save_cache_job:
     needs: build  # Ensure this job runs after the first job
     runs-on: windows-2019

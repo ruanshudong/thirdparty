@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.15)
 
-project(thirdparty_ci)
+project(thirdparty_src)
 if(POLICY CMP0135)
 cmake_policy(SET CMP0135 NEW)  # 设置CMP0135策略为新行为
 endif()
