@@ -32,13 +32,13 @@ jobs:
         run: echo "::set-output name=VERSION::${GITHUB_REF#refs/tags/}"
       - name: Compress build output
         run: |
-          cd build; tar czf dist-${{ runner.os }}-${{ steps.get_version.outputs.VERSION }}.tgz dist/; mv dist-${{ runner.os }}-${{ steps.get_version.outputs.VERSION }}.tgz ../
+          cd build; cmake -E tar czf dist-${{ runner.os }}-${{ steps.get_version.outputs.VERSION }}.tgz dist/; cmake -E copy dist-${{ runner.os }}-${{ steps.get_version.outputs.VERSION }}.tgz ../
       - uses: ncipollo/release-action@v1
         with:
           artifacts: "dist-${{ runner.os }}-${{ steps.get_version.outputs.VERSION }}.tgz"
           allowUpdates: true
           token: ${{ secrets.RELEASE_TOKEN }}
-          name: "${{ runner.os }}-${{ steps.get_version.outputs.VERSION }}"
+          name: "${{ steps.get_version.outputs.VERSION }}"
   save_cache_job:
     needs: build  # Ensure this job runs after the first job
     runs-on: windows-2019
