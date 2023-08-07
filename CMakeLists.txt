@@ -195,4 +195,6 @@ install(DIRECTORY modules DESTINATION ${CMAKE_INSTALL_PREFIX})
 
 add_custom_target(build ALL DEPENDS thirdparty)
 
+if(MSVC)
 INSTALL(CODE "EXECUTE_PROCESS(COMMAND link.bat)")
+endif(MSVC)
