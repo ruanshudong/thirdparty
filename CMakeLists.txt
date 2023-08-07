@@ -9,6 +9,7 @@ if(WIN32)
     option(MT_MODE "default compiled as MD" off)
     if(MT_MODE)
         set(CMAKE_USER_MAKE_RULES_OVERRIDE "${CMAKE_SOURCE_DIR}/modules/ChangToMT.cmake")
+        set(MT_MODE_FLAG "/MT")
     endif(MT_MODE)
 endif(WIN32)
 
