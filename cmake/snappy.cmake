@@ -22,6 +22,7 @@ ExternalProject_Add(ADD_${LIB_SNAPPY}
         SOURCE_DIR ${THIRDPARTY_PATH}/${LIB_SNAPPY}-lib
         BUILD_IN_SOURCE 1
         BUILD_COMMAND make
+        INSTALL_COMMAND make install && ln -s ${THIRDPARTY_PATH}/snappy-${SNAPPY_VERSION}/lib ${THIRDPARTY_PATH}/snappy-${SNAPPY_VERSION}/lib64
         URL_MD5 ${SNAPPY_MD5}
         )
 
