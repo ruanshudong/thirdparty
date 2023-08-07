@@ -12,7 +12,7 @@ if (WIN32)
           DOWNLOAD_DIR ${CMAKE_SOURCE_DIR}/download
           PREFIX ${CMAKE_BINARY_DIR}
           INSTALL_DIR ${CMAKE_SOURCE_DIR}
-          CONFIGURE_COMMAND ${CMAKE_COMMAND} .  -DCMAKE_CXX_FLAGS=${MT_MODE_FLAG} -T${MSVC_TOOLSET_VERSION} -DCMAKE_INSTALL_PREFIX=${THIRDPARTY_PATH}/gtest-${GTEST_VERSION} -DBUILD_SHARED_LIBS=${BUILD_SHARED_LIBS} -Dgtest_hide_internal_symbols=ON -Dgtest_force_shared_crt=ON -Dgtest_force_shared_crt=on
+          CONFIGURE_COMMAND ${CMAKE_COMMAND} .  -DCMAKE_CXX_CFLAGS=${MT_MODE_FLAG} -T${MSVC_TOOLSET_VERSION} -DCMAKE_INSTALL_PREFIX=${THIRDPARTY_PATH}/gtest-${GTEST_VERSION} -DBUILD_SHARED_LIBS=${BUILD_SHARED_LIBS} -Dgtest_hide_internal_symbols=ON -Dgtest_force_shared_crt=ON -Dgtest_force_shared_crt=on
           SOURCE_DIR ${THIRDPARTY_PATH}/${LIB_GTEST}-lib
           BUILD_IN_SOURCE 1
           BUILD_COMMAND ${CMAKE_COMMAND} --build . --config release -- /maxcpucount:4
