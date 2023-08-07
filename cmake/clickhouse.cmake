@@ -16,7 +16,7 @@ if (UNIX)
 
     add_dependencies(thirdparty ADD_${LIB_CLICKHOUSE})
 
-endif (UNIX)
-
 install(DIRECTORY ${THIRDPARTY_PATH}/clickhouse-version USE_SOURCE_PERMISSIONS DESTINATION ${CMAKE_INSTALL_PREFIX})
 INSTALL(CODE "EXECUTE_PROCESS(COMMAND ${CMAKE_COMMAND} -E create_symlink ${CMAKE_INSTALL_PREFIX}/clickhouse-version  ${CMAKE_INSTALL_PREFIX}/clickhouse)")
+
+endif (UNIX)

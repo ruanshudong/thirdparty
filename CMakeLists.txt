@@ -15,7 +15,7 @@ endif(WIN32)
 IF (UNIX)
     set(INSTALL_PREFIX "/usr/local/thirdparty" CACHE STRING "set install path" )
 ELSE()
-    set(INSTALL_PREFIX "c:/thirdparty/" CACHE STRING "set install path" )
+    set(INSTALL_PREFIX "c:\\\\thirdparty" CACHE STRING "set install path" )
 ENDIF()
 
 #工程INSTALL目录
@@ -23,8 +23,9 @@ IF(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
     set(CMAKE_INSTALL_PREFIX "${INSTALL_PREFIX}" CACHE STRING "set install path" FORCE)
 endif()
 
-
-set(MSVC_TOOLSET_VERSION "v140")
+set(MSVC_TOOLSET_VERSION "v143")
+set(LINK_FILE "${CMAKE_BINARY_DIR}/link.bat")
+file(WRITE ${LINK_FILE} "")
 
 option(BUILD_SHARED_LIBS "build shared libs" OFF)
 option(BUILD_STATIC_LIBS "build static libs" ON)
@@ -194,3 +195,4 @@ install(DIRECTORY modules DESTINATION ${CMAKE_INSTALL_PREFIX})
 
 add_custom_target(build ALL DEPENDS thirdparty)
 
+INSTALL(CODE "EXECUTE_PROCESS(COMMAND link.bat)")
